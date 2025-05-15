@@ -67,9 +67,10 @@ function App() {
   } 
 
   const computerJudgement = (userResult) => {
-    if (userResult == "Win"){
+    console.log("userResult : " + userResult)
+    if (userResult == "win"){
       return "lose";
-    } else if (userResult == "Lose"){
+    } else if (userResult == "lose"){
       return "win";
     } else {
       return "tie";
