@@ -1,71 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import Box from './component/Box'
-import {useMediaQuery} from 'react-responsive';
-
-export const Mobile = ({}) => {
-  const isMobile = useMediaQuery({
-    query : "(max-width:768px)"
-  });
-  
-  return <>{isMobile && 
-    <div>
-      <h1 className="main">🎮Rock, Scissors, Paper🎮</h1>
-      <h2>Score <span>{userScore} : {computerScore}</span></h2> 
-      <div className="main">
-        <Box title="You" item={userSelect} result={userResult}/>
-        <pre>     </pre>
-        <Box title="Computer" item={computerSelect} result={computerResult}/>
-      </div>
-      
-      <br/>
-
-      <div className="main">
-        {/* 아래처럼 함수를 호출하는 형태로 부르면 
-        소스가 로딩되지마자 함수가 다 실행되어버림
-        클릭 했을 때 함수를 실행시키려면 () => 함수명()으로 콜백함수를 넣어줘야함
-        */}
-        {/* <button onClick={play("scissors")}>가위</button> */} 
-        
-        <button className="item-hand" onClick={() => play("scissors")}>✌🏻</button>
-        <button className="item-hand" onClick={() => play("rock")}>✊🏻</button>
-        <button className="item-hand" onClick={() => play("paper")}>🖐🏻</button>
-      </div>
-    </div>
-  }</>
-}
-
-export const PC = ({}) => {
-  const isPc = useMediaQuery({
-    query : "(min-width:1024px)"
-  });
-  
-  return <>{isPc &&
-    <div>
-      <h1 className="main">🎮Rock, Scissors, Paper🎮</h1>
-      <h2>Score <span>{userScore} : {computerScore}</span></h2> 
-      <div className="main">
-        <Box title="You" item={userSelect} result={userResult}/>
-        <pre>     </pre>
-        <Box title="Computer" item={computerSelect} result={computerResult}/>
-      </div>
-      
-      <br/>
-
-      <div className="main">
-        {/* 아래처럼 함수를 호출하는 형태로 부르면 
-        소스가 로딩되지마자 함수가 다 실행되어버림
-        클릭 했을 때 함수를 실행시키려면 () => 함수명()으로 콜백함수를 넣어줘야함
-        */}
-        {/* <button onClick={play("scissors")}>가위</button> */} 
-        
-        <button className="item-hand" onClick={() => play("scissors")}>✌🏻</button>
-        <button className="item-hand" onClick={() => play("rock")}>✊🏻</button>
-        <button className="item-hand" onClick={() => play("paper")}>🖐🏻</button>
-      </div>
-    </div>
-  }</>
-}
 
 // 1.박스 2개 생성 (타이틀, 사진, 결과)
 // 2. 박스 하단에 버튼 (가위, 바위, 보) : 버튼을 클릭 시 클릭한 값이 박스에 보임 & 컴퓨터 박스는 랜덤하게 선택
@@ -152,10 +87,29 @@ function App() {
   }
 
   return (
-    <>
-      <Mobile></Mobile>
-      <PC></PC>
-    </>
+    <div>
+      <h1 className="main">🎮Rock, Scissors, Paper🎮</h1>
+      <h2>Score <span>{userScore} : {computerScore}</span></h2> 
+      <div className="main">
+        <Box title="You" item={userSelect} result={userResult}/>
+        <pre>     </pre>
+        <Box title="Computer" item={computerSelect} result={computerResult}/>
+      </div>
+      
+      <br/>
+
+      <div className="main">
+        {/* 아래처럼 함수를 호출하는 형태로 부르면 
+        소스가 로딩되지마자 함수가 다 실행되어버림
+        클릭 했을 때 함수를 실행시키려면 () => 함수명()으로 콜백함수를 넣어줘야함
+        */}
+        {/* <button onClick={play("scissors")}>가위</button> */} 
+        
+        <button className="item-hand" onClick={() => play("scissors")}>✌🏻</button>
+        <button className="item-hand" onClick={() => play("rock")}>✊🏻</button>
+        <button className="item-hand" onClick={() => play("paper")}>🖐🏻</button>
+      </div>
+    </div>  
   )
 }
 
